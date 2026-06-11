@@ -1,0 +1,829 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alexandria — Prototipo MVP</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="sim-header">
+      <h1>📚 Alexandria — Prototipo MVP</h1>
+    </div>
+
+    <div class="nav-screens">
+      <button class="nav-btn active" onclick="goTo(0)">1. Login</button>
+      <button class="nav-btn" onclick="goTo(1)">2. Dashboard</button>
+      <button class="nav-btn" onclick="goTo(2)">3. Calendario</button>
+      <button class="nav-btn" onclick="goTo(3)">4. Apuntes</button>
+      <button class="nav-btn" onclick="goTo(4)">5. IA Resumen</button>
+      <button class="nav-btn" onclick="goTo(5)">6. Pomodoro</button>
+      <button class="nav-btn" onclick="goTo(6)">7. Seguimiento</button>
+    </div>
+
+    <div class="phone-wrap">
+      <div class="phone-shell">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <!-- STATUS BAR -->
+          <div class="status-bar" id="statusBar">
+            <span>9:41</span>
+            <div class="status-icons">
+              <span>●●●</span>
+              <span>WiFi</span>
+              <span>🔋</span>
+            </div>
+          </div>
+
+          <!-- ===== PANTALLA 0: LOGIN ===== -->
+          <div
+            class="screen active"
+            id="screen-0"
+            style="
+              background: linear-gradient(170deg, #1a3a6b 0%, #0d2147 100%);
+            "
+          >
+            <div class="screen-content">
+              <div class="login-logo">
+                <div class="logo-icon">📚</div>
+                <h1>Alexandria</h1>
+                <p>Tu ecosistema académico inteligente</p>
+              </div>
+              <div class="login-form">
+                <div class="input-group">
+                  <label>Correo institucional</label>
+                  <div class="fake-input">estudiante@utp.edu.pe</div>
+                </div>
+                <div class="input-group">
+                  <label>Contraseña</label>
+                  <div class="fake-input">••••••••</div>
+                </div>
+                <button class="btn-primary" onclick="goTo(1)">
+                  Iniciar sesión →
+                </button>
+                <div class="login-divider">— o continúa con —</div>
+                <button class="btn-google" onclick="goTo(1)">
+                  <span>🔵</span> Continuar con Google
+                </button>
+                <p
+                  style="
+                    text-align: center;
+                    color: rgba(255, 255, 255, 0.4);
+                    font-size: 12px;
+                    margin-top: 18px;
+                  "
+                >
+                  ¿Aún no tienes cuenta?
+                  <span style="color: var(--acento); font-weight: 700"
+                    >Regístrate gratis</span
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== PANTALLA 1: DASHBOARD ===== -->
+          <div class="screen" id="screen-1">
+            <div class="greeting-band">
+              <div class="greeting-row">
+                <div>
+                  <h2>¡Hola, Diego! 👋</h2>
+                  <p>Miércoles, 10 de junio · 3 tareas pendientes</p>
+                </div>
+                <div class="notif-btn">
+                  🔔
+                  <div class="notif-dot"></div>
+                </div>
+              </div>
+            </div>
+            <div class="screen-content">
+              <div class="stats-row">
+                <div class="stat-chip">
+                  <div class="num">7</div>
+                  <div class="lbl">Racha días</div>
+                </div>
+                <div class="stat-chip">
+                  <div class="num">3</div>
+                  <div class="lbl">Pendientes</div>
+                </div>
+                <div class="stat-chip">
+                  <div class="num">85%</div>
+                  <div class="lbl">Progreso</div>
+                </div>
+              </div>
+              <div style="margin: 12px 14px 0">
+                <div class="streak-banner">
+                  <div class="streak-icon">🔥</div>
+                  <div>
+                    <h3>¡7 días de racha!</h3>
+                    <p>Sigue así, ya casi llegas a 10 días</p>
+                  </div>
+                </div>
+              </div>
+              <div class="section-label">Acceso rápido</div>
+              <div class="quick-grid">
+                <button class="quick-btn" onclick="goTo(2)">
+                  <div class="icon">📅</div>
+                  <div class="label">Calendario</div>
+                  <div class="sub">3 eventos hoy</div>
+                </button>
+                <button class="quick-btn" onclick="goTo(3)">
+                  <div class="icon">📁</div>
+                  <div class="label">Mis Apuntes</div>
+                  <div class="sub">12 archivos</div>
+                </button>
+                <button class="quick-btn" onclick="goTo(4)">
+                  <div class="icon">🤖</div>
+                  <div class="label">IA Resumen</div>
+                  <div class="sub">Generar ahora</div>
+                </button>
+                <button class="quick-btn" onclick="goTo(5)">
+                  <div class="icon">⏱️</div>
+                  <div class="label">Pomodoro</div>
+                  <div class="sub">Iniciar sesión</div>
+                </button>
+              </div>
+              <div class="section-label">Tareas próximas</div>
+              <div class="card" style="margin-bottom: 14px">
+                <div class="task-item">
+                  <div class="task-check done">✓</div>
+                  <div class="task-info">
+                    <div class="t">Avance 3 — Prototipo</div>
+                    <div class="s">Diseño de Productos</div>
+                  </div>
+                  <div class="task-badge badge-blue">Hoy</div>
+                </div>
+                <div class="task-item">
+                  <div class="task-check"></div>
+                  <div class="task-info">
+                    <div class="t">Examen Parcial — Redes</div>
+                    <div class="s">Redes de Computadoras</div>
+                  </div>
+                  <div class="task-badge badge-red">Mañana</div>
+                </div>
+                <div class="task-item">
+                  <div class="task-check"></div>
+                  <div class="task-info">
+                    <div class="t">Informe Final — Sistemas</div>
+                    <div class="s">Teoría de Sistemas</div>
+                  </div>
+                  <div class="task-badge badge-yellow">3 días</div>
+                </div>
+              </div>
+            </div>
+            <div class="bottom-nav" id="nav-1">
+              <div class="nav-item active" onclick="goTo(1)">
+                <span>🏠</span><span>Inicio</span>
+              </div>
+              <div class="nav-item" onclick="goTo(2)">
+                <span>📅</span><span>Calendario</span>
+              </div>
+              <div class="nav-item" onclick="goTo(3)">
+                <span>📁</span><span>Apuntes</span>
+              </div>
+              <div class="nav-item" onclick="goTo(6)">
+                <span>📊</span><span>Progreso</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== PANTALLA 2: CALENDARIO ===== -->
+          <div class="screen" id="screen-2">
+            <div class="cal-header">
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  padding-bottom: 12px;
+                "
+              >
+                <h2>Calendario Académico</h2>
+                <div
+                  style="
+                    background: rgba(255, 255, 255, 0.15);
+                    border-radius: 8px;
+                    padding: 5px 10px;
+                    font-size: 12px;
+                    color: white;
+                    cursor: pointer;
+                  "
+                >
+                  + Agregar
+                </div>
+              </div>
+              <div class="cal-days-header">
+                <span>D</span><span>L</span><span>M</span><span>X</span
+                ><span>J</span><span>V</span><span>S</span>
+              </div>
+              <div class="cal-grid">
+                <div class="cal-day other-month">1</div>
+                <div class="cal-day other-month">2</div>
+                <div class="cal-day has-event">3</div>
+                <div class="cal-day">4</div>
+                <div class="cal-day has-event">5</div>
+                <div class="cal-day">6</div>
+                <div class="cal-day">7</div>
+                <div class="cal-day">8</div>
+                <div class="cal-day">9</div>
+                <div class="cal-day today has-event">10</div>
+                <div class="cal-day has-event">11</div>
+                <div class="cal-day">12</div>
+                <div class="cal-day">13</div>
+                <div class="cal-day">14</div>
+                <div class="cal-day">15</div>
+                <div class="cal-day has-event">16</div>
+                <div class="cal-day">17</div>
+                <div class="cal-day has-event">18</div>
+                <div class="cal-day">19</div>
+                <div class="cal-day">20</div>
+                <div class="cal-day">21</div>
+                <div class="cal-day has-event">22</div>
+                <div class="cal-day">23</div>
+                <div class="cal-day">24</div>
+                <div class="cal-day has-event">25</div>
+                <div class="cal-day">26</div>
+                <div class="cal-day">27</div>
+                <div class="cal-day">28</div>
+                <div class="cal-day">29</div>
+                <div class="cal-day has-event">30</div>
+              </div>
+            </div>
+            <div class="screen-content">
+              <div class="section-label">Hoy — 10 de junio</div>
+              <div class="card">
+                <div class="event-list-item">
+                  <div class="event-color" style="background: #e74c3c"></div>
+                  <div class="event-info">
+                    <div class="t">Entrega Avance 3 — Prototipo</div>
+                    <div class="s">Diseño de Productos · Aula 301</div>
+                  </div>
+                  <div class="event-time">11:00<br />am</div>
+                </div>
+                <div class="event-list-item">
+                  <div class="event-color" style="background: #3498db"></div>
+                  <div class="event-info">
+                    <div class="t">Clase Redes de Computadoras</div>
+                    <div class="s">Ing. Sistemas · Lab 2</div>
+                  </div>
+                  <div class="event-time">2:00<br />pm</div>
+                </div>
+                <div class="event-list-item">
+                  <div class="event-color" style="background: #27ae60"></div>
+                  <div class="event-info">
+                    <div class="t">Reunión Grupo 4 — Proyecto</div>
+                    <div class="s">Biblioteca UTP · Sala C</div>
+                  </div>
+                  <div class="event-time">5:30<br />pm</div>
+                </div>
+              </div>
+              <div class="section-label">Próximos eventos</div>
+              <div class="card">
+                <div class="event-list-item">
+                  <div class="event-color" style="background: #e74c3c"></div>
+                  <div class="event-info">
+                    <div class="t">Examen Parcial — Redes</div>
+                    <div class="s">Mañana · Aula 201</div>
+                  </div>
+                  <div class="event-time">9:00<br />am</div>
+                </div>
+                <div class="event-list-item">
+                  <div class="event-color" style="background: #f4a824"></div>
+                  <div class="event-info">
+                    <div class="t">Informe Final — Sistemas</div>
+                    <div class="s">13 junio · Online</div>
+                  </div>
+                  <div class="event-time">11:59<br />pm</div>
+                </div>
+              </div>
+            </div>
+            <div class="bottom-nav">
+              <div class="nav-item" onclick="goTo(1)">
+                <span>🏠</span><span>Inicio</span>
+              </div>
+              <div class="nav-item active" onclick="goTo(2)">
+                <span>📅</span><span>Calendario</span>
+              </div>
+              <div class="nav-item" onclick="goTo(3)">
+                <span>📁</span><span>Apuntes</span>
+              </div>
+              <div class="nav-item" onclick="goTo(6)">
+                <span>📊</span><span>Progreso</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== PANTALLA 3: APUNTES ===== -->
+          <div class="screen" id="screen-3">
+            <div class="top-bar">
+              <div class="top-bar-row">
+                <div>
+                  <h2>Mis Apuntes</h2>
+                  <p>12 archivos · 4 cursos</p>
+                </div>
+                <div style="font-size: 20px; cursor: pointer">+</div>
+              </div>
+            </div>
+            <div class="screen-content">
+              <div class="search-bar">
+                <span>🔍</span>
+                <p>Buscar apuntes o archivos...</p>
+              </div>
+              <div class="section-label">Carpetas por curso</div>
+              <div class="card">
+                <div class="folder-item">
+                  <div class="folder-icon" style="background: #ebf3fc">📘</div>
+                  <div class="folder-info">
+                    <div class="t">Diseño de Productos</div>
+                    <div class="s">4 archivos · Actualizado hoy</div>
+                  </div>
+                  <div class="folder-arrow">›</div>
+                </div>
+                <div class="folder-item">
+                  <div class="folder-icon" style="background: #fef9e7">📙</div>
+                  <div class="folder-info">
+                    <div class="t">Redes de Computadoras</div>
+                    <div class="s">3 archivos · Hace 2 días</div>
+                  </div>
+                  <div class="folder-arrow">›</div>
+                </div>
+                <div class="folder-item">
+                  <div class="folder-icon" style="background: #fdecea">📕</div>
+                  <div class="folder-info">
+                    <div class="t">Teoría de Sistemas</div>
+                    <div class="s">3 archivos · Hace 3 días</div>
+                  </div>
+                  <div class="folder-arrow">›</div>
+                </div>
+                <div class="folder-item">
+                  <div class="folder-icon" style="background: #e9f7ef">📗</div>
+                  <div class="folder-info">
+                    <div class="t">Base de Datos II</div>
+                    <div class="s">2 archivos · Hace 1 semana</div>
+                  </div>
+                  <div class="folder-arrow">›</div>
+                </div>
+              </div>
+              <div class="section-label">Archivos recientes</div>
+              <div class="card">
+                <div class="file-item">
+                  <div class="file-icon" style="background: #fdecea">📄</div>
+                  <div class="file-info">
+                    <div class="t">Avance3_Alexandria.pdf</div>
+                    <div class="s">2.4 MB · Hoy</div>
+                  </div>
+                </div>
+                <div class="file-item">
+                  <div class="file-icon" style="background: #ebf3fc">📝</div>
+                  <div class="file-info">
+                    <div class="t">Apuntes_Redes_S8.docx</div>
+                    <div class="s">845 KB · Ayer</div>
+                  </div>
+                </div>
+                <div class="file-item">
+                  <div class="file-icon" style="background: #fef9e7">🖼️</div>
+                  <div class="file-info">
+                    <div class="t">Diagrama_ER_BD.png</div>
+                    <div class="s">1.1 MB · Hace 2 días</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="fab">+</div>
+            <div class="bottom-nav">
+              <div class="nav-item" onclick="goTo(1)">
+                <span>🏠</span><span>Inicio</span>
+              </div>
+              <div class="nav-item" onclick="goTo(2)">
+                <span>📅</span><span>Calendario</span>
+              </div>
+              <div class="nav-item active" onclick="goTo(3)">
+                <span>📁</span><span>Apuntes</span>
+              </div>
+              <div class="nav-item" onclick="goTo(6)">
+                <span>📊</span><span>Progreso</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== PANTALLA 4: IA RESUMEN ===== -->
+          <div class="screen" id="screen-4">
+            <div class="top-bar">
+              <div class="top-bar-row">
+                <div>
+                  <h2>IA Académica</h2>
+                  <p>Resúmenes automáticos con IA</p>
+                </div>
+                <span style="font-size: 22px">🤖</span>
+              </div>
+            </div>
+            <div class="screen-content">
+              <div class="ia-hero">
+                <div class="icon">✨</div>
+                <h3>Genera resúmenes inteligentes</h3>
+                <p>Sube un apunte o documento y la IA lo procesa en segundos</p>
+              </div>
+              <div class="upload-area">
+                <div class="icon">📤</div>
+                <p>Subir documento o apunte</p>
+                <span>PDF, Word, imagen de apunte · Máx. 10 MB</span>
+              </div>
+              <div class="section-label">Último resumen generado</div>
+              <div class="resumen-card">
+                <div class="label">
+                  📄 Redes_OSI_Model.pdf · Generado hace 1h
+                </div>
+                <p>
+                  Resumen del Modelo OSI y sus 7 capas de comunicación en redes
+                  de computadoras:
+                </p>
+                <div class="puntos">
+                  <div class="punto">
+                    <span
+                      >La capa física gestiona la transmisión de bits a través
+                      del medio físico (cables, señales).</span
+                    >
+                  </div>
+                  <div class="punto">
+                    <span
+                      >La capa de enlace controla el acceso al medio y la
+                      detección de errores mediante MAC.</span
+                    >
+                  </div>
+                  <div class="punto">
+                    <span
+                      >La capa de red se encarga del direccionamiento lógico y
+                      enrutamiento mediante IP.</span
+                    >
+                  </div>
+                  <div class="punto">
+                    <span
+                      >La capa de transporte garantiza la entrega fiable de
+                      datos usando TCP o UDP.</span
+                    >
+                  </div>
+                  <div class="punto">
+                    <span
+                      >Las capas de sesión, presentación y aplicación gestionan
+                      la comunicación entre aplicaciones.</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div style="margin: 0 14px 14px; display: flex; gap: 8px">
+                <button
+                  style="
+                    flex: 1;
+                    padding: 12px;
+                    background: var(--azul);
+                    color: white;
+                    border: none;
+                    border-radius: 12px;
+                    font-size: 13px;
+                    font-weight: 700;
+                    cursor: pointer;
+                    font-family: inherit;
+                  "
+                >
+                  💾 Guardar
+                </button>
+                <button
+                  style="
+                    flex: 1;
+                    padding: 12px;
+                    background: var(--gris2);
+                    color: var(--texto);
+                    border: none;
+                    border-radius: 12px;
+                    font-size: 13px;
+                    font-weight: 700;
+                    cursor: pointer;
+                    font-family: inherit;
+                  "
+                >
+                  📋 Copiar
+                </button>
+              </div>
+            </div>
+            <div class="bottom-nav">
+              <div class="nav-item" onclick="goTo(1)">
+                <span>🏠</span><span>Inicio</span>
+              </div>
+              <div class="nav-item" onclick="goTo(2)">
+                <span>📅</span><span>Calendario</span>
+              </div>
+              <div class="nav-item" onclick="goTo(3)">
+                <span>📁</span><span>Apuntes</span>
+              </div>
+              <div class="nav-item" onclick="goTo(6)">
+                <span>📊</span><span>Progreso</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== PANTALLA 5: POMODORO ===== -->
+          <div class="screen" id="screen-5">
+            <div
+              class="pomo-bg"
+              style="display: flex; flex-direction: column; height: 100%"
+            >
+              <div class="pomo-top">
+                <h2>Modo Enfoque</h2>
+                <span style="font-size: 20px; color: rgba(255, 255, 255, 0.5)"
+                  >⚙️</span
+                >
+              </div>
+              <div class="pomo-mode">
+                <div class="pomo-tab active">Pomodoro</div>
+                <div class="pomo-tab">Descanso</div>
+                <div class="pomo-tab">Descanso largo</div>
+              </div>
+              <div class="pomo-circle-wrap">
+                <div class="pomo-circle">
+                  <div class="pomo-time">25:00</div>
+                  <div class="pomo-label">Sesión 1 de 4</div>
+                </div>
+              </div>
+              <div class="pomo-controls">
+                <button class="pomo-btn reset">↺ Reiniciar</button>
+                <button class="pomo-btn start">▶ Iniciar</button>
+              </div>
+              <div class="pomo-sessions" style="flex: 1">
+                <div class="lbl">Sesiones de hoy</div>
+                <div class="session-dots">
+                  <div class="session-dot done"></div>
+                  <div class="session-dot done"></div>
+                  <div class="session-dot"></div>
+                  <div class="session-dot"></div>
+                </div>
+                <p>2 sesiones completadas · 50 min de enfoque</p>
+                <div
+                  style="
+                    margin-top: 14px;
+                    background: rgba(255, 255, 255, 0.07);
+                    border-radius: 10px;
+                    padding: 10px;
+                  "
+                >
+                  <p
+                    style="
+                      font-size: 11px;
+                      color: rgba(255, 255, 255, 0.5);
+                      margin-bottom: 6px;
+                      font-weight: 700;
+                      text-transform: uppercase;
+                      letter-spacing: 0.8px;
+                    "
+                  >
+                    Curso activo
+                  </p>
+                  <p style="font-size: 13px; color: white; font-weight: 600">
+                    📘 Diseño de Productos y Servicios
+                  </p>
+                </div>
+                <div
+                  style="
+                    margin-top: 10px;
+                    background: rgba(244, 168, 36, 0.1);
+                    border-radius: 10px;
+                    padding: 10px;
+                    border: 1px solid rgba(244, 168, 36, 0.3);
+                  "
+                >
+                  <p
+                    style="
+                      font-size: 11px;
+                      color: var(--acento);
+                      font-weight: 700;
+                    "
+                  >
+                    🔕 Modo No Molestar activo
+                  </p>
+                  <p
+                    style="
+                      font-size: 11px;
+                      color: rgba(255, 255, 255, 0.5);
+                      margin-top: 2px;
+                    "
+                  >
+                    Las notificaciones están bloqueadas durante la sesión
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="bottom-nav"
+              style="position: absolute; bottom: 0; width: 100%"
+            >
+              <div class="nav-item" onclick="goTo(1)">
+                <span>🏠</span><span>Inicio</span>
+              </div>
+              <div class="nav-item" onclick="goTo(2)">
+                <span>📅</span><span>Calendario</span>
+              </div>
+              <div class="nav-item" onclick="goTo(3)">
+                <span>📁</span><span>Apuntes</span>
+              </div>
+              <div class="nav-item" onclick="goTo(6)">
+                <span>📊</span><span>Progreso</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== PANTALLA 6: SEGUIMIENTO ===== -->
+          <div class="screen" id="screen-6">
+            <div class="top-bar">
+              <div class="top-bar-row">
+                <div>
+                  <h2>Mi Progreso</h2>
+                  <p>Semana del 9 al 15 de junio</p>
+                </div>
+                <span style="font-size: 20px">📊</span>
+              </div>
+            </div>
+            <div class="screen-content">
+              <div class="section-label">Resumen semanal</div>
+              <div class="card">
+                <div class="progress-ring-wrap">
+                  <div class="ring-item">
+                    <div class="ring">
+                      <svg viewBox="0 0 70 70">
+                        <circle class="ring-bg" cx="35" cy="35" r="30" />
+                        <circle
+                          class="ring-fill"
+                          cx="35"
+                          cy="35"
+                          r="30"
+                          stroke="#2A5298"
+                          stroke-dasharray="188.5"
+                          stroke-dashoffset="28"
+                        />
+                      </svg>
+                      <div class="ring-text">
+                        <span class="v">85%</span><span class="l">General</span>
+                      </div>
+                    </div>
+                    <div class="name">Progreso</div>
+                  </div>
+                  <div class="ring-item">
+                    <div class="ring">
+                      <svg viewBox="0 0 70 70">
+                        <circle class="ring-bg" cx="35" cy="35" r="30" />
+                        <circle
+                          class="ring-fill"
+                          cx="35"
+                          cy="35"
+                          r="30"
+                          stroke="#F4A824"
+                          stroke-dasharray="188.5"
+                          stroke-dashoffset="94"
+                        />
+                      </svg>
+                      <div class="ring-text">
+                        <span class="v">50%</span><span class="l">Tareas</span>
+                      </div>
+                    </div>
+                    <div class="name">Tareas</div>
+                  </div>
+                  <div class="ring-item">
+                    <div class="ring">
+                      <svg viewBox="0 0 70 70">
+                        <circle class="ring-bg" cx="35" cy="35" r="30" />
+                        <circle
+                          class="ring-fill"
+                          cx="35"
+                          cy="35"
+                          r="30"
+                          stroke="#27AE60"
+                          stroke-dasharray="188.5"
+                          stroke-dashoffset="38"
+                        />
+                      </svg>
+                      <div class="ring-text">
+                        <span class="v">80%</span><span class="l">Estudio</span>
+                      </div>
+                    </div>
+                    <div class="name">Estudio</div>
+                  </div>
+                </div>
+              </div>
+              <div class="section-label">Minutos de estudio por día</div>
+              <div class="card">
+                <div class="bar-row">
+                  <span class="day">L</span>
+                  <div class="bar-track">
+                    <div class="bar-fill" style="width: 70%"></div>
+                  </div>
+                  <span class="val">70m</span>
+                </div>
+                <div class="bar-row">
+                  <span class="day">M</span>
+                  <div class="bar-track">
+                    <div class="bar-fill" style="width: 90%"></div>
+                  </div>
+                  <span class="val">90m</span>
+                </div>
+                <div class="bar-row">
+                  <span class="day">X</span>
+                  <div class="bar-track">
+                    <div class="bar-fill" style="width: 50%"></div>
+                  </div>
+                  <span class="val">50m</span>
+                </div>
+                <div class="bar-row">
+                  <span class="day">J</span>
+                  <div class="bar-track">
+                    <div class="bar-fill" style="width: 80%"></div>
+                  </div>
+                  <span class="val">80m</span>
+                </div>
+                <div class="bar-row">
+                  <span class="day">V</span>
+                  <div class="bar-track">
+                    <div class="bar-fill" style="width: 100%"></div>
+                  </div>
+                  <span class="val">100m</span>
+                </div>
+                <div class="bar-row">
+                  <span class="day">S</span>
+                  <div class="bar-track">
+                    <div class="bar-fill" style="width: 40%"></div>
+                  </div>
+                  <span class="val">40m</span>
+                </div>
+                <div class="bar-row">
+                  <span class="day">D</span>
+                  <div class="bar-track">
+                    <div class="bar-fill" style="width: 20%"></div>
+                  </div>
+                  <span class="val">20m</span>
+                </div>
+              </div>
+              <div class="section-label">Logros desbloqueados</div>
+              <div class="card" style="margin-bottom: 14px">
+                <div class="logro-item">
+                  <div class="logro-icon">🔥</div>
+                  <div class="logro-info">
+                    <div class="t">Racha de 7 días</div>
+                    <div class="s">Estudiaste 7 días seguidos</div>
+                  </div>
+                  <div class="logro-badge">
+                    <span class="task-badge badge-yellow">🏆 Oro</span>
+                  </div>
+                </div>
+                <div class="logro-item">
+                  <div class="logro-icon">📚</div>
+                  <div class="logro-info">
+                    <div class="t">Lector Constante</div>
+                    <div class="s">Subiste 10 apuntes este mes</div>
+                  </div>
+                  <div class="logro-badge">
+                    <span class="task-badge badge-blue">🥈 Plata</span>
+                  </div>
+                </div>
+                <div class="logro-item">
+                  <div class="logro-icon">⏱️</div>
+                  <div class="logro-info">
+                    <div class="t">Maestro del Enfoque</div>
+                    <div class="s">Completaste 20 pomodoros</div>
+                  </div>
+                  <div class="logro-badge">
+                    <span class="task-badge badge-blue">🥈 Plata</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="bottom-nav">
+              <div class="nav-item" onclick="goTo(1)">
+                <span>🏠</span><span>Inicio</span>
+              </div>
+              <div class="nav-item" onclick="goTo(2)">
+                <span>📅</span><span>Calendario</span>
+              </div>
+              <div class="nav-item" onclick="goTo(3)">
+                <span>📁</span><span>Apuntes</span>
+              </div>
+              <div class="nav-item active" onclick="goTo(6)">
+                <span>📊</span><span>Progreso</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- phone-screen -->
+      </div>
+      <!-- phone-shell -->
+    </div>
+    <!-- phone-wrap -->
+
+    <div
+      style="
+        color: #8ba3c7;
+        font-size: 12px;
+        text-align: center;
+        margin-top: 16px;
+      "
+    ></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
